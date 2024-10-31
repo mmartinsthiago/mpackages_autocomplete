@@ -18,6 +18,7 @@ elif [[ "$1" == "remove" ]]; then
     else
         echo "sudo pacman -R $2"
         sudo pacman -R "$2"
+    fi
 else
     echo "mpackages <options> | <what-to-install>"
     echo
