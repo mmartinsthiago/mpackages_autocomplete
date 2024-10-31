@@ -19,9 +19,13 @@ Follow the steps below to install `mpackages`:
     ```
     cd path/to/mpackages_autocomplete
     ```
-3. Run the instalation script:
+3. Give execute permission to **"install.sh"**:
     ```
-    sudo chmod +x install.sh && sudo ./install.sh
+    sudo chmod +x install.sh
+    ```
+4. Execute the **"install.sh"**:
+    ```
+    sudo ./install.sh
     ```
 
 ## How to use
