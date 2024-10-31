@@ -1,0 +1,23 @@
+_mpackages_autocomplete() {
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="update install remove"
+
+    if [[ ${COMP_CWORD} -eq 1 ]]; then
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    elif [[ ${COMP_CWORD} -eq 2 ]]; then
+        if [[ "${prev}" == "install" ]]; then
+            local packages=$(pacman -Slq)
+            COMPREPLY=( $(compgen -W "${packages}" -- ${cur}) )
+        elif [[ "${prev}" == "remove" ]]; then
+            local packages=$(pacman -Qq)
+            COMPREPLY=( $(compgen -W "${packages}" -- ${cur}) )
+        fi
+    fi
+    
+    return 0
+}
+
+complete -F _mpackages_autocomplete mpackages
