@@ -1,15 +1,36 @@
-_mpackages_autocomplete() {
-	local cur prev opts
-	COMPREPLY=()
-	cur="${COMP_WORDS[COMP_CWORD]}"
-	prev="${COMP_WORDS[COMP_CWORD-1]}"
-	opts="update install"
+#!/bin/bash
 
-	if [[ ${COMP_CWORD} -eq 1 ]]; then
-		COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-	fi
+if [[ "$1" == "update" ]]; then
+    echo "sudo pacman -Syyu"
+    sudo pacman -Syyu
+elif [[ "$1" == "install" ]]; then
+    if [[ -z "$2" ]]; then
+        echo "mpackages install needs an argument for what to install!"
+        echo "mpackages install <what-to-install>"
+    else
+        echo "sudo pacman -S $2"
+        sudo pacman -S "$2"
+    fi
+elif [[ "$1" == "remove" ]]; then
+    if [[ -z "$2" ]]; then
+        echo "mpackages remove needs an argument for what to remove"
+        echo "mpackage remove <what-to-remove>"
+    else
+        echo "sudo pacman -R $2"
+        sudo pacman -R "$2"
+else
+    echo "mpackages <options> | <what-to-install>"
+    echo
+    echo "<options>:"
+    echo
+    echo "update    :       To update packages in the system"
+    echo "install   :       Requires another argument to specify what"
+    echo "                  to install with the pacman"
+    echo "remove    :       Requires another argument to specify what"
+    echo "                  to remove with pacman"
+    echo
+    echo "<what-to-install>|<what-to-remove>:"
+    echo
+    echo "You must specify which program, with pacman, you want to install."
+fi
 
-	return 0
-}
-
-complete -F _mpackages_autcomplete mpackages
