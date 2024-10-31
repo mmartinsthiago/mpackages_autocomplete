@@ -1,6 +1,6 @@
 # mpackages_autocomplete
 
-The **mpackages_autocomplete** provides a simplified command for managing packages on Manjaro using the `mpackage` command, along with support for autocompletion with the **Tab** key.
+The **mpackages_autocomplete** provides a simplified command for managing packages on Manjaro using the `mpackages` command, along with support for autocompletion with the **Tab** key.
 
 ## Requirements
 
@@ -9,7 +9,7 @@ The **mpackages_autocomplete** provides a simplified command for managing packag
 
 ## Installation
 
-Follow the steps below to install `mpackage`:
+Follow the steps below to install `mpackages`:
 
 1. Clone the repository:
    ```
@@ -25,30 +25,30 @@ Follow the steps below to install `mpackage`:
     ```
 
 ## How to use
-After installation, you can use the mpackage command with superuser privileges to simplify package management. The command follows this structure:
+After installation, you can use the `mpackages` command with superuser privileges to simplify package management. The command follows this structure:
 ```
-sudo mpackage <option> <package>
+sudo mpackages <option> <package>
 ```
 ### Available options
 1. **"update"**: Updates all packages installed with Pacman.
     ```
-    sudo mpackage update
+    sudo mpackages update
     ```
 2. **"install"**: Installs a specific package listed in Pacman.
     ```
-    sudo mpackage install <package_name>
+    sudo mpackages install <package_name>
     ```
     - **Example:** To install **"Inkscape"**:
         ```
-        sudo mpackage install inkscape
+        sudo mpackages install inkscape
         ```
 3. **"remove"**: Removes a package installed with Pacman.
     ```
-    sudo mpackage remove <package_name>
+    sudo mpackages remove <package_name>
     ```
     - **Example:** To remove **"Inkscape"**:
         ```
-        sudo mpackage remove inkscape
+        sudo mpackages remove inkscape
         ```
 
-You are now ready to use mpackage for a more streamlined and efficient package management experience on Manjaro!
+You are now ready to use `mpackages` for a more streamlined and efficient package management experience on Manjaro!
