@@ -11,21 +11,31 @@ function withoutVerbose() {
 
 echo "Installing command mpackage ..."
 
-withVerbose "Changing permission to executable ..." "$1"
-withVerbose"sudo chmod +x mpackage" "$1"
+withoutVerbose "Changing permission to executable ..." "$1"
+withoutVerbose"sudo chmod +x mpackage" "$1"
 sudo chmod +x mpackage
-withVerbose "Permission changed!" "$1"
+withoutVerbose "Permission changed!" "$1"
 
-withVerbose "Moving mpackage to executable commands/bin directory ..." "$1"
-withVerbose "sudo mv mpackage /usr/local/bin" "$1"
+withoutVerbose "Moving mpackage to executable commands/bin directory ..." "$1"
+withoutVerbose "sudo mv mpackage /usr/local/bin" "$1"
 sudo mv mpackage /usr/local/bin
-withVerbose "Moved mpackage to executable commands/bin directory!" "$1"
+withoutVerbose "Moved mpackage to executable commands/bin directory!" "$1"
 
-withVerbose "Moving mpackage_autcomplete to bash_completion.d ..." "$1"
-withVerbose "sudo mv mpackage_autocomplete /etc/bash_completion.d/mpackage" "$1"
+withoutVerbose "Moving mpackage_autcomplete to bash_completion.d ..." "$1"
+withoutVerbose "sudo mv mpackage_autocomplete /etc/bash_completion.d/mpackage" "$1"
 sudo mv mpackage_autocomplete /etc/bash_completion.d/mpackage
-withVerbose "Moved mpackage_autcomplete to bash_completion.d!" "$1"
+withoutVerbose "Moved mpackage_autcomplete to bash_completion.d!" "$1"
 
 echo "Instalation successfully made!"
-echo "Bye!"
+echo "Commands avalilable:"
+echo
+echo "sudo mpackage update              |   To update instalations with the pacman"
+echo "sudo mpackage install <package>   |   To install package with the pacman"
+echo "sudo mpackage remove <package>    |   To remove package with the pacman"
+echo
 sleep 1
+echo "Optional"
+echo "You can delete this directory after this instalation, typing:"
+echo "cd .. && rm -rf mpackage_autocomplete"
+
+echo "Bye!"
