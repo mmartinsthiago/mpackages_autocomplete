@@ -1,0 +1,15 @@
+_mpackages_autocomplete() {
+	local cur prev opts
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	prev="${COMP_WORDS[COMP_CWORD-1]}"
+	opts="update install"
+
+	if [[ ${COMP_CWORD} -eq 1 ]]; then
+		COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+	fi
+
+	return 0
+}
+
+complete -F _mpackages_autcomplete mpackages
